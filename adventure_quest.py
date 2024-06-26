@@ -1,6 +1,9 @@
 def find_the_treasure():
     print("Congradulations! You found the treasure!")
+    f = open("adventure_outcomes.txt", "w")
+    f.write("Found the treasure!\n")
     print("Play again?")
+    f.close()
     print("\t1: Yes")
     print("\t2: No")
     choice = input()
@@ -8,9 +11,15 @@ def find_the_treasure():
         main()
     if choice == "2":
         print("Thanks for playing!")
+        print("Outcomes: ")
+        read_outcomes()
 
 def leave_the_forest():
     print("You left the forest.")
+    f = open("adventure_outcomes.txt", "w")
+    f.write("Left the forest.\n")
+    print("Play again?")
+    f.close()
     print("Play again?")
     print("\t1: Yes")
     print("\t2: No")
@@ -19,6 +28,13 @@ def leave_the_forest():
         main()
     if choice == "2":
         print("Thanks for playing!")
+        print("Outcomes: ")
+        read_outcomes()
+
+def read_outcomes():
+    f = open("adventure_outcomes.txt", "r")
+    print(f.read())
+    f.close()
 
 def main():
     print("You find yourself at the edge of an ancient, enchanted grove. Legends say that deep within this forest lies a hidden treasure guarded by mystical creatures. As you step into the grove, you feel a tingle of magic in the air. Your adventure begins now.")
